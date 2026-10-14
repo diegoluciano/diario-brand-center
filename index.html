@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diário dos Pequenos — Brand Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--haze7:#544E73;--blue8:#2B5397;--ink:#241D46;--indigo:#3B326C;--haze:#6F6A8C;--mist:#D5D5D7;--lav:#E2E2F2;--green:#5AE770;--green6:#36D57B;--blue:#3398FE;--bluedeep:#2273A9;--red:#FF6666;--page:#F6F5FC;--font:"Cairo",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:auto}
+body{font-family:var(--font);color:var(--ink);background:var(--page);-webkit-font-smoothing:antialiased}
+.nav{position:sticky;top:0;z-index:20;height:70px;background:rgba(36,29,70,.96);display:flex;align-items:center;padding:0 56px;gap:34px;color:#fff}
+.nav img{height:28px}
+.nav a{color:#cfcbe6;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.nav .tag{margin-left:auto;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);border:1px solid var(--green);border-radius:99px;padding:5px 12px}
+section{height:960px;overflow:hidden;position:relative;padding:64px 56px 0}
+.wrap{max-width:1328px;margin:0 auto}
+.kick{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--haze7)}
+h2.t{font-size:56px;line-height:1.02;font-weight:200;letter-spacing:-.01em;margin:10px 0 12px}
+h2.t b{font-weight:700}
+.lead{font-size:17px;line-height:1.55;color:#4a4570;max-width:640px}
+h4{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--haze7);margin-bottom:12px}
+code,.mono{font-family:var(--mono)}
+/* hero */
+.hero{background:radial-gradient(circle at 78% 30%,#4a4084 0,#3B326C 36%,#241D46 100%);color:#fff;padding-top:96px}
+.hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1.4px,transparent 1.6px);background-size:22px 22px;mask-image:linear-gradient(180deg,transparent,#000 70%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;height:760px}
+.hero h1{font-size:104px;line-height:.92;font-weight:200;letter-spacing:-.02em;margin:18px 0 22px}
+.hero h1 b{font-weight:700;display:block}
+.hero p{font-size:19px;line-height:1.55;color:#cfcbe6;max-width:560px}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:99px;padding:6px 12px}
+.chip--ret{background:rgba(90,231,112,.14);color:var(--green);border:1px solid rgba(90,231,112,.5);margin-top:26px}
+.chip{white-space:nowrap;justify-content:center}.chip--ok{background:#d9f7df;color:#146b2a}.chip--mid{background:#ffe9b8;color:#7a5200}.chip--bad{background:#ffd9d9;color:#8f1d1d}
+.stats{display:flex;gap:34px;margin-top:44px}
+.stats div b{display:block;font-size:34px;font-weight:700;color:#fff;line-height:1}
+.stats div span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#a9a4c9}
+.herovis{position:relative;height:100%}
+.herovis .logo{position:absolute;top:0;left:10px;width:500px}
+.ph{position:absolute;width:232px;border-radius:30px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.45),0 0 0 6px #1b1535;background:#000}
+.ph img{display:block;width:100%}
+/* color */
+.s-color{background:var(--page)}
+.cgrid{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;margin-top:26px}
+.sg{margin-bottom:16px}.sg__row{display:flex;gap:12px}
+.sw{flex:1 1 0;border-radius:14px;padding:14px 14px 12px;min-height:132px;display:flex;flex-direction:column;box-shadow:inset 0 0 0 1px rgba(36,29,70,.08)}
+.sw b{font-size:17px;font-weight:700}.sw span{font-family:var(--mono);font-size:12px;opacity:.9;margin-top:2px}.sw small{font-family:var(--mono);font-size:10px;opacity:.7;margin-top:auto}.sw em{font-style:normal;font-size:11px;opacity:.85;margin-top:3px;line-height:1.25}
+.sw[data-half]{flex:0 0 calc(33.3% - 8px)}
+.ramp{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center;margin-bottom:12px}
+.ramp__l b{display:block;font-size:15px}.ramp__l span{font-family:var(--mono);font-size:10px;color:var(--haze7)}
+.ramp__c{display:grid;grid-template-columns:repeat(9,1fr);border-radius:10px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(36,29,70,.08)}
+.rc{height:60px;display:flex;align-items:flex-end;padding:6px;font-size:11px}
+.note{font-size:12px;color:var(--haze7);line-height:1.5;margin-top:6px}
+/* type + shape */
+.s-type{background:#fff}
+.tgrid{display:grid;grid-template-columns:.92fr 1.08fr;gap:48px;margin-top:22px}
+.spec{border-radius:20px;background:var(--indigo);color:#fff;padding:26px 30px;height:300px;position:relative;overflow:hidden}
+.spec .aa{font-size:150px;line-height:1;font-weight:200}
+.spec .w{position:absolute;right:30px;top:28px;text-align:right;font-size:15px;line-height:1.7}
+.spec .w b{font-weight:700}.spec .w i{font-style:normal;font-weight:200;font-size:19px}
+.abc{margin-top:16px;font-size:19px;line-height:1.5;color:#3d3862}
+.scale .row{display:grid;grid-template-columns:1fr 150px;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--lav)}
+.scale .row .meta{text-align:right;line-height:1.35}
+.scale code{font-size:11px;color:var(--haze)}
+.scale .row .m{font-family:var(--mono);font-size:11px;color:var(--haze7)}
+.shape{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:26px}
+.bars .b{display:flex;align-items:center;gap:10px;margin-bottom:7px;font-family:var(--mono);font-size:11px;color:var(--haze)}.bars .b i{display:block;height:12px;background:var(--green6);border-radius:3px}
+.rad{display:flex;gap:12px;align-items:flex-end}.rad div{width:62px;height:62px;background:var(--lav);border:2px solid var(--haze);display:flex;align-items:flex-end;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--haze);padding-bottom:4px}
+.elev{display:flex;gap:14px}.elev div{flex:1;height:64px;background:#fff;border-radius:16px;display:flex;align-items:flex-end;padding:8px;font-family:var(--mono);font-size:10px;color:var(--haze)}
+/* icons */
+.s-icons{background:var(--indigo);color:#fff}
+.s-icons .lead,.s-icons h4,.s-icons .kick{color:#bdb8dc}
+.igrid{display:grid;grid-template-columns:repeat(8,1fr);gap:16px;margin-top:30px}
+.ic{background:rgba(36,29,70,.55);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:16px 8px 12px;text-align:center}
+.ic__b{height:92px;display:flex;align-items:center;justify-content:center}.ic__b img{max-height:62px;max-width:70px}
+.ic b{display:block;font-size:13px;margin-top:6px}.ic code{font-size:9.5px;color:#a9a4c9}
+.irow{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px;margin-top:26px}
+.pnl{background:rgba(36,29,70,.55);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:20px 22px;font-size:14px;line-height:1.55;color:#d8d4ee}
+.pnl h4{margin-bottom:10px}
+.key{display:flex;gap:22px;align-items:center}.key .k{width:96px;height:96px;border:1.5px dashed rgba(255,255,255,.35);border-radius:10px;display:flex;align-items:center;justify-content:center;position:relative}.key .k img{max-width:54px;max-height:54px}
+.var{display:flex;gap:18px;align-items:center;justify-content:center;height:90px}.var .v{width:78px;height:78px;border-radius:14px;display:flex;align-items:center;justify-content:center}.var img{max-width:44px;max-height:44px}
+/* components */
+.s-comp{background:var(--page)}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:24px}
+.card{background:#fff;border-radius:20px;padding:18px 20px;box-shadow:0 6px 18px rgba(36,29,70,.08);border:1px solid #ebe9f6;overflow:hidden}
+.card h4{margin-bottom:12px}
+.c4{grid-column:span 4}.c3{grid-column:span 3}.c5{grid-column:span 5}.c6{grid-column:span 6}.c2{grid-column:span 2}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:46px;border-radius:99px;border:0;font:700 13px var(--font);letter-spacing:.08em;text-transform:uppercase;padding:0 26px;color:var(--ink)}
+.btn--p{background:var(--green)}.btn--d{background:var(--red)}.btn--t{background:none;color:var(--blue8);padding:0 12px}.btn--x{background:var(--mist);color:var(--haze)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.lbl{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--haze);margin-bottom:5px}
+.fld{height:44px;border-radius:6px;background:#fff;border:1.5px solid var(--mist);padding:0 14px;display:flex;align-items:center;font-size:14px;color:var(--haze);margin-bottom:12px}
+.fld.f{border-color:var(--blue);box-shadow:0 0 0 3px rgba(51,152,254,.18);color:var(--ink)}
+.fld.s{background:var(--ink);border-color:var(--ink);color:#e9e7f7;gap:10px}
+.fld.s i{width:14px;height:14px;border:2px solid #cfcbe6;border-radius:50%;position:relative;display:block}.fld.s i:after{content:"";position:absolute;width:7px;height:2px;background:#cfcbe6;right:-6px;bottom:-3px;transform:rotate(45deg)}
+.tile{display:flex;gap:16px;align-items:center}
+.tile .ring{position:relative;width:104px;height:104px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 2px rgba(255,255,255,.06)}
+.tile .ring img{max-height:46px;max-width:52px}
+.tile .bd{position:absolute;left:-6px;top:-4px;width:34px;height:34px;border-radius:50%;background:var(--haze);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;border:3px solid #fff}
+.tile .tl b{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase}.tile .tl span{font-size:12px;color:var(--haze)}
+.lcard{background:#fff;border-radius:18px;box-shadow:0 8px 20px rgba(36,29,70,.16);padding:14px 16px;display:flex;align-items:center;gap:12px;border:1px solid #eeecf8}
+.lcard b{display:block;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase}.lcard small{display:block;font-size:11.5px;color:#4a4570;line-height:1.35}.lcard img{width:34px;margin-left:auto}
+.msg{background:#fff;border-radius:14px;box-shadow:0 8px 20px rgba(36,29,70,.14);padding:14px 16px 0;position:relative;font-size:12px;line-height:1.4;font-style:italic;color:#3d3862;margin-top:18px}
+.msg .av{position:absolute;top:-18px;left:50%;margin-left:-18px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#8c82c4,#3B326C);border:3px solid #fff}
+.msg .dt{font-style:normal;font-size:10px;color:var(--haze);margin:8px 0 10px}
+.msg .bar{height:8px;background:var(--green6);margin:0 -16px;border-radius:0 0 14px 14px;position:relative}.msg .bar:after{content:"";position:absolute;right:22px;top:8px;border:9px solid transparent;border-top-color:var(--green6);border-bottom:0}
+.cal{font-size:12px}.cal .h{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:14px;margin-bottom:8px;color:var(--ink)}.cal .h i{color:var(--green6);font-style:normal;font-size:18px}
+.cal .g{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center}.cal .g b{font-size:11px;padding:3px 0}.cal .g span{padding:5px 0;border-radius:50%;font-size:12px}.cal .g .o{color:#b6b2cc}.cal .g .sel{background:var(--ink);color:#fff;font-weight:700}
+.dlg{background:#fff;border-radius:6px;box-shadow:0 14px 30px rgba(36,29,70,.25);padding:14px 16px;border:1px solid #eeecf8}.dlg .ti{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.dlg .o{display:flex;align-items:center;gap:10px;font-size:12px;text-transform:uppercase;padding:4px 0;color:#3d3862}.dlg .o i{width:16px;height:16px;border:2px solid var(--ink);border-radius:3px;display:block;position:relative}.dlg .o i.on{border-color:var(--green6);background:var(--green6)}.dlg .o i.on:after{content:"";position:absolute;left:3.5px;top:0;width:5px;height:9px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(40deg)}
+.dlg .f{display:flex;justify-content:flex-end;gap:18px;margin-top:8px;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--haze)}.dlg .f b{color:var(--bluedeep)}
+.spec2{font-family:var(--mono);font-size:10.5px;color:var(--haze);margin-top:10px;line-height:1.5}
+/* context */
+.s-ctx{background:#fff}
+.cx{display:grid;grid-template-columns:1.55fr .75fr;gap:40px;margin-top:10px}
+.phones{display:flex;gap:36px;justify-content:center;padding-top:16px}
+.dv{position:relative;width:268px;border-radius:30px;overflow:hidden;box-shadow:0 24px 46px rgba(36,29,70,.28),0 0 0 6px #1b1535;background:#000;height:562px}
+.dv img{width:100%;display:block}
+.pin{position:absolute;width:26px;height:26px;border-radius:50%;background:var(--green);color:var(--ink);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px rgba(90,231,112,.3),0 2px 6px rgba(0,0,0,.3);transform:translate(-50%,-50%)}
+.legend{margin-top:30px}.legend .l{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--lav);font-size:14px;line-height:1.35}.legend .l .pin{position:static;transform:none;flex:none;width:24px;height:24px;font-size:12px;box-shadow:none}.legend .l b{display:block}.legend .l small{color:var(--haze);font-family:var(--mono);font-size:10.5px}
+/* tokens + audit */
+.s-tok{background:var(--ink);color:#fff}
+.s-tok .kick,.s-tok h4{color:#bdb8dc}.s-tok .lead{color:#cfcbe6}
+.tk{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:22px}
+pre{background:#161032;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px 22px;font:12.5px/1.6 var(--mono);color:#d8d4ee;height:auto;overflow:hidden}
+pre .c{color:#7e78a6}pre .v{color:var(--green)}
+.crow{display:grid;grid-template-columns:48px 1fr 64px 96px;gap:12px;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.csw{width:48px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px}
+.ctx b{display:block;font-size:14px}.ctx small{color:#a9a4c9;font-size:12px}.cr{font-family:var(--mono);font-size:13px;text-align:right}
+.callout{margin-top:18px;background:rgba(90,231,112,.1);border:1px solid rgba(90,231,112,.4);border-radius:14px;padding:14px 18px;font-size:14px;line-height:1.5;color:#e6f8ea}
+.callout b{color:var(--green)}
+
+:root{--ink:#2B1B30;--indigo:#6F0A68;--haze:#6B5E70;--haze7:#584A5D;--mist:#E4DCE6;--lav:#F3EEF4;--page:#F8F5F8;--green:#00BAA2;--green6:#009C87;--blue:#6F0A68;--blue8:#6F0A68;--bluedeep:#6F0A68;--red:#E5484D;--font:"Roboto",system-ui,sans-serif}
+.nav{background:rgba(77,1,84,.97)}
+.nav .tag{color:#FED952;border-color:#FED952}
+.hero{background:radial-gradient(circle at 78% 28%,#8a1b82 0,#6F0A68 38%,#4D0154 100%)}
+.hero h1{font-weight:300;font-size:92px}
+.chip--ret{background:rgba(254,217,82,.16);color:#FED952;border-color:rgba(254,217,82,.55)}
+h2.t{font-weight:300}
+.mkbox{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+.mk{border-radius:20px;height:250px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:inset 0 0 0 1px rgba(43,27,48,.08)}
+.mk img{max-width:78%;max-height:78%}
+.mk small{position:absolute;left:14px;bottom:10px;font-family:var(--mono);font-size:10.5px;opacity:.75}
+.lk{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:16px;margin-top:16px}
+.lk .mk{height:200px}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.rule{background:#fff;border:1px solid #ece4ee;border-radius:16px;padding:16px 18px;font-size:14px;line-height:1.5;color:#4d3f52}
+.rule b{display:block;color:#2B1B30;margin-bottom:4px;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.spec{background:#6F0A68}
+.btn{font-family:var(--font);letter-spacing:.04em;text-transform:none;font-size:14px}
+.btn--pp{background:#6F0A68;color:#fff;border-radius:10px;height:44px;padding:0 24px}
+.btn--tl{background:#00BAA2;color:#2B1B30;border-radius:99px;height:44px;padding:0 30px;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.fab{width:52px;height:52px;border-radius:50%;background:#00BAA2;color:#fff;font-size:30px;font-weight:300;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 16px rgba(0,186,162,.35)}
+.pf{margin-bottom:10px}.pf .l{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6F0A68}.pf .v{font-size:17px;font-weight:500;color:#3e4147;border-bottom:1.5px solid #bdb4c0;padding:4px 0 6px}
+.kid{display:flex;align-items:center;gap:12px;background:#fff;border-radius:12px;padding:8px 12px 8px 0;border-left:7px solid #F7A201;box-shadow:0 3px 10px rgba(43,27,48,.1);margin-bottom:8px}
+.kid.t{border-color:#00BAA2}.kid.p{border-color:#6F0A68}
+.kid .av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#d9b38c,#8a5a3a);margin-left:6px}
+.kid b{display:block;font-size:13px;font-weight:500}.kid small{font-size:10.5px;color:#7a6c80;text-transform:uppercase;letter-spacing:.04em}
+.kid .ch{margin-left:auto;width:22px;height:18px;border:2px solid #6F0A68;border-radius:6px;opacity:.8}
+.msg .bar{background:#FED952}.msg .bar:after{border-top-color:#FED952}
+.msg .av{background:linear-gradient(135deg,#e8c9a8,#a57a52)}
+.msg .dt{display:flex;align-items:center;gap:8px}.msg .dt i{margin-left:auto;display:block;width:16px;height:16px;border-radius:50%;border:2px solid #00BAA2}
+.bdg{display:inline-flex;font-size:12px;font-weight:700;border-radius:99px;padding:4px 10px;margin:0 6px 6px 0}
+.cal .h i{color:#6F0A68}.cal .g .sel{background:#6F0A68}
+.cal .lg{display:flex;gap:12px;margin-top:8px;font-size:10px;color:#7a6c80}.cal .lg i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:4px}
+.sheet{background:#fff;border-radius:18px 18px 0 0;box-shadow:0 -6px 20px rgba(43,27,48,.16);padding:12px 14px 14px}
+.sheet .gr{width:40px;height:4px;border-radius:2px;background:#d9cfdc;margin:0 auto 10px}
+.sheet .r{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #f0e9f1;font-size:13px}.sheet .r:last-child{border:0}
+.sheet .r .av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#e8c9a8,#a57a52)}
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.role{background:#fff;border:1px solid #ece4ee;border-radius:18px;padding:16px 18px}
+.role h5{font-size:15px;font-weight:700;margin-bottom:4px}.role p{font-size:12.5px;line-height:1.45;color:#5d4f62;min-height:54px}
+.tabs{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}.tabs span{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#F3EEF4;color:#6F0A68;border-radius:99px;padding:4px 10px}
+.pillars{display:flex;gap:12px;margin-top:14px}.pillars div{flex:1;background:#6F0A68;color:#fff;border-radius:14px;padding:12px 14px;font-size:12.5px;line-height:1.35}.pillars b{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#FED952;margin-bottom:3px}
+.cx{grid-template-columns:1.2fr .8fr}
+.mrow{display:grid;grid-template-columns:120px 28px 78px 22px 28px 78px;gap:10px;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.mrow code{font-size:12px;color:#e6d9ea}.mrow .mh{color:#c9b8cf;font-size:11px}.mrow i{color:#FED952;font-style:normal}
+.msw{width:28px;height:22px;border-radius:6px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}
+.s-tok{background:#4D0154}pre{background:#2e0033}
+.callout{background:rgba(254,217,82,.1);border-color:rgba(254,217,82,.45);color:#fbf1c9}.callout b{color:#FED952}
+.s-tok .kick,.s-tok h4{color:#d8c3de}
+.chip--ok{background:#d9f7ef;color:#075e51}
+</style></head><body>
+
+<header class="nav" id="nav"><img src="assets/lockup-white.png" alt="Diário dos Pequenos" style="height:36px"><a href="#logo">Logo</a><a href="#cor">Colour</a><a href="#tipo">Type</a><a href="#componentes">Components</a><a href="#papeis">Roles</a><a href="#tokens">Tokens</a><span class="tag">Brand center · v1</span></header>
+
+<section class="hero" id="topo"><div class="wrap">
+ <div>
+  <div class="kick" style="color:#e2cfe8">Diário dos Pequenos · School–family messaging</div>
+  <h1>Brand<b>Center</b></h1>
+  <p>The identity, colours, type and components behind the app that connects classrooms and families — from the original 2018 screens to the structure of the 2026 MVP.</p>
+  <span class="chip chip--ret">● Brand center v1 · 2026</span>
+  <div class="stats"><div><b>9</b><span>Brand colours</span></div><div><b>4×9</b><span>Colour ramps</span></div><div><b>7</b><span>Type sizes</span></div><div><b>3</b><span>Roles</span></div></div>
+ </div>
+ <div class="herovis">
+  <img class="logo" src="assets/lockup-white.png" alt="Diário dos Pequenos logo" style="width:520px;top:0">
+  <div class="ph" style="left:30px;top:210px;transform:rotate(-5deg)"><img src="assets/s-login.jpg" alt=""></div>
+  <div class="ph" style="left:285px;top:258px;transform:rotate(4deg)"><img src="assets/s-select.jpg" alt=""></div>
+ </div>
+</div></section>
+
+<section class="s-color" id="logo"><div class="wrap">
+ <div class="kick">01 / Identity</div>
+ <h2 class="t">A book, a child, <b>one smile.</b></h2>
+ <p class="lead">The mark is a smiling child drawn on the cover of a book, sitting on a teal disc. The hand-lettered logotype sits beside it or below it — never inside it.</p>
+ <div class="mkbox">
+  <div class="mk" style="background:#fff"><img src="assets/mark.png" alt=""><small>on white</small></div>
+  <div class="mk" style="background:#601167"><img src="assets/mark.png" alt=""><small style="color:#fff">on plum</small></div>
+  <div class="mk" style="background:#EFEFEF"><img src="assets/mark.png" alt=""><small>on paper</small></div>
+  <div class="mk" style="background:#FED952"><img src="assets/mark.png" alt=""><small>on sun</small></div>
+ </div>
+ <div class="lk">
+  <div class="mk" style="background:#601167"><img src="assets/lockup-white.png" alt="" style="max-width:86%"><small style="color:#fff">lockup · white wordmark</small></div>
+  <div class="mk" style="background:#fff"><img src="assets/lockup-purple.png" alt="" style="max-width:86%"><small>lockup · purple wordmark</small></div>
+  <div class="mk" style="background:#6F0A68"><img src="assets/wordmark-white.png" alt="" style="max-width:62%"><small style="color:#fff">wordmark only</small></div>
+ </div>
+ <div class="rules">
+  <div class="rule"><b>Clear space</b>Keep at least a quarter of the mark's diameter free on every side of the mark and lockup.</div>
+  <div class="rule"><b>Minimum size</b>Mark: 32 px. Lockup: 160 px wide. Below that, use the mark alone.</div>
+  <div class="rule"><b>Backgrounds</b>Purple wordmark on light surfaces, white wordmark on plum and purple. Do not place the wordmark on teal or sun.</div>
+ </div>
+</div></section>
+
+<section class="s-color" id="cor"><div class="wrap" style="padding-top:0">
+ <div class="kick">02 / Foundations</div>
+ <h2 class="t">Colour, <b>sampled from the screens.</b></h2>
+ <p class="lead">Purple and teal carry the interface; sun and book come from the logo and the message bar. Four of them grow into nine-step ramps.</p>
+ <div class="cgrid">
+  <div><div class="sg"><h4>Brand</h4><div class="sg__row"><div class="sw" style="background:#6F0A68;color:#fff"><b>Purple</b><span>#6F0A68</span><small>--dp-purple-600</small><em>Primary · labels · app bar</em></div><div class="sw" style="background:#4D0154;color:#fff"><b>Plum</b><span>#4D0154</span><small>--dp-plum-800</small><em>App bar dark · login</em></div><div class="sw" style="background:#601167;color:#fff"><b>Login plum</b><span>#601167</span><small>--dp-plum-700</small><em>Login surface</em></div></div></div><div class="sg"><h4>Accents</h4><div class="sg__row"><div class="sw" style="background:#00BAA2;color:#1d1428"><b>Teal</b><span>#00BAA2</span><small>--dp-teal-500</small><em>Actions · checks · FAB</em></div><div class="sw" style="background:#FED952;color:#1d1428"><b>Sun</b><span>#FED952</span><small>--dp-sun-500</small><em>Message bar · highlights</em></div><div class="sw" style="background:#F7A201;color:#1d1428"><b>Book</b><span>#F7A201</span><small>--dp-book-500</small><em>Logo book · class tag</em></div></div></div><div class="sg"><h4>Neutrals</h4><div class="sg__row"><div class="sw" style="background:#2B1B30;color:#fff"><b>Ink</b><span>#2B1B30</span><small>--dp-ink-900</small><em>Text</em></div><div class="sw" style="background:#EFEFEF;color:#1d1428"><b>Paper</b><span>#EFEFEF</span><small>--dp-paper-100</small><em>Page surface</em></div><div class="sw" style="background:#FFFFFF;color:#1d1428"><b>White</b><span>#FFFFFF</span><small>--dp-white</small><em>Cards</em></div></div></div><p class="note">Hex values were sampled from the 2018 screens and the logo. Ink and Paper are neutrals chosen to sit with them.</p></div>
+  <div><h4>Ramps · 100 → 900 (derived)</h4><div class="ramp"><div class="ramp__l"><b>Primary · Purple</b><span>--dp-purple-500 #6F0A68</span></div><div class="ramp__c"><div class="rc" style="background:#EBDDEA;color:#2B1B30"><b>100</b></div><div class="rc" style="background:#D7BAD5;color:#2B1B30"><b>200</b></div><div class="rc" style="background:#BA89B7;color:#fff"><b>300</b></div><div class="rc" style="background:#944A8F;color:#fff"><b>400</b></div><div class="rc" style="background:#6F0A68;color:#fff"><b>500</b></div><div class="rc" style="background:#64085F;color:#fff"><b>600</b></div><div class="rc" style="background:#560654;color:#fff"><b>700</b></div><div class="rc" style="background:#480449;color:#fff"><b>800</b></div><div class="rc" style="background:#3C033F;color:#fff"><b>900</b></div></div></div><div class="ramp"><div class="ramp__l"><b>Accent · Teal</b><span>--dp-teal-500 #00BAA2</span></div><div class="ramp__c"><div class="rc" style="background:#DBF5F2;color:#2B1B30"><b>100</b></div><div class="rc" style="background:#B8ECE5;color:#2B1B30"><b>200</b></div><div class="rc" style="background:#85DED2;color:#2B1B30"><b>300</b></div><div class="rc" style="background:#42CCBA;color:#2B1B30"><b>400</b></div><div class="rc" style="background:#00BAA2;color:#2B1B30"><b>500</b></div><div class="rc" style="background:#00A691;color:#fff"><b>600</b></div><div class="rc" style="background:#008C7B;color:#fff"><b>700</b></div><div class="rc" style="background:#007365;color:#fff"><b>800</b></div><div class="rc" style="background:#005C51;color:#fff"><b>900</b></div></div></div><div class="ramp"><div class="ramp__l"><b>Highlight · Sun</b><span>--dp-sun-500 #FED952</span></div><div class="ramp__c"><div class="rc" style="background:#FFFAE7;color:#2B1B30"><b>100</b></div><div class="rc" style="background:#FFF4CF;color:#2B1B30"><b>200</b></div><div class="rc" style="background:#FFEDAC;color:#2B1B30"><b>300</b></div><div class="rc" style="background:#FEE37F;color:#2B1B30"><b>400</b></div><div class="rc" style="background:#FED952;color:#2B1B30"><b>500</b></div><div class="rc" style="background:#E1C045;color:#2B1B30"><b>600</b></div><div class="rc" style="background:#BDA034;color:#2B1B30"><b>700</b></div><div class="rc" style="background:#998024;color:#fff"><b>800</b></div><div class="rc" style="background:#796315;color:#fff"><b>900</b></div></div></div><div class="ramp"><div class="ramp__l"><b>Warm · Book</b><span>--dp-book-500 #F7A201</span></div><div class="ramp__c"><div class="rc" style="background:#FEF2DB;color:#2B1B30"><b>100</b></div><div class="rc" style="background:#FDE5B8;color:#2B1B30"><b>200</b></div><div class="rc" style="background:#FBD285;color:#2B1B30"><b>300</b></div><div class="rc" style="background:#F9BA43;color:#2B1B30"><b>400</b></div><div class="rc" style="background:#F7A201;color:#2B1B30"><b>500</b></div><div class="rc" style="background:#DB8F01;color:#fff"><b>600</b></div><div class="rc" style="background:#B97701;color:#fff"><b>700</b></div><div class="rc" style="background:#965F00;color:#fff"><b>800</b></div><div class="rc" style="background:#774900;color:#fff"><b>900</b></div></div></div><p class="note">Steps 100–400 mix the base with white; 600–900 with a dark shade of the same hue.</p></div>
+ </div>
+</div></section>
+
+<section class="s-type" id="tipo"><div class="wrap">
+ <div class="kick">03 / Foundations</div>
+ <h2 class="t">Hand-lettered logo, <b>plain Roboto UI.</b></h2>
+ <div class="tgrid">
+  <div>
+   <div class="spec"><div class="aa" style="font-weight:300">Aa</div><div class="w"><i style="font-weight:300">Roboto Light</i><br>Roboto Regular<br><b>Roboto Bold</b></div></div>
+   <div class="abc">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br><b>0123456789</b> — ÁÉÍÓÚ Ç ÃÕ</div>
+   <p class="note" style="margin-top:12px">The 2018 screens use Roboto throughout; the logotype is custom lettering and is only ever used as artwork.</p>
+  </div>
+  <div class="scale">
+   <div class="row"><span style="font-size:28px;font-weight:700;line-height:1.1">Bom dia, professora</span><div class="meta"><code>titleXL</code><br><span class="m">28 · 700</span></div></div>
+   <div class="row"><span style="font-size:22px;font-weight:700">Atividades do dia</span><div class="meta"><code>titleLG</code><br><span class="m">22 · 700</span></div></div>
+   <div class="row"><span style="font-size:18px;font-weight:700">Selecionar criança</span><div class="meta"><code>titleMD</code><br><span class="m">18 · 700</span></div></div>
+   <div class="row"><span style="font-size:16px;font-weight:500">André da Silva</span><div class="meta"><code>titleSM</code><br><span class="m">16 · 500</span></div></div>
+   <div class="row"><span style="font-size:15px">Trabalho realizado com recortes de jornal</span><div class="meta"><code>bodyMD</code><br><span class="m">15 · 400</span></div></div>
+   <div class="row"><span style="font-size:13px">Fica de olho nele, por favor?</span><div class="meta"><code>bodySM</code><br><span class="m">13 · 400</span></div></div>
+   <div class="row"><span style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6F0A68">Alergia</span><div class="meta"><code>caption / label</code><br><span class="m">12 · 700 · caps</span></div></div>
+  </div>
+ </div>
+ <div class="shape">
+  <div><h4>Space</h4><div class="bars"><div class="b"><i style="width:6px"></i>4</div><div class="b"><i style="width:10px"></i>10</div><div class="b"><i style="width:12px"></i>12</div><div class="b"><i style="width:14px"></i>14</div><div class="b"><i style="width:24px"></i>24</div></div></div>
+  <div><h4>Radius</h4><div class="rad"><div style="border-radius:10px">10</div><div style="border-radius:14px">14</div><div style="border-radius:18px">18</div><div style="border-radius:99px">pill</div></div></div>
+  <div><h4>Elevation</h4><div class="elev"><div style="box-shadow:0 3px 10px rgba(43,27,48,.12)">list</div><div style="box-shadow:0 8px 20px rgba(43,27,48,.16)">card</div><div style="box-shadow:0 -6px 20px rgba(43,27,48,.18)">sheet</div></div></div>
+ </div>
+</div></section>
+
+<section class="s-comp" id="componentes"><div class="wrap">
+ <div class="kick">04 / Components</div>
+ <h2 class="t">From the 2018 screens <b>and the 2026 code.</b></h2>
+ <div class="bento">
+  <div class="card c4"><h4>Buttons</h4><div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span class="btn btn--pp">Salvar</span><span class="btn btn--tl">Entrar</span><span class="fab">+</span></div><div class="spec2">primary: radius 10 · pad 12 · 13/700<br>login: pill · Ink label · FAB: teal 52</div></div>
+  <div class="card c4"><h4>Profile field</h4><div class="pf"><div class="l">Nome</div><div class="v">André da Silva</div></div><div class="pf"><div class="l">Alergia</div><div class="v">Novalgina</div></div><div class="spec2">label 12/700 caps Purple · value 17/500</div></div>
+  <div class="card c4"><h4>Status badge</h4><span class="bdg" style="background:#EEF2F7;color:#6B5E70">Pendente</span><span class="bdg" style="background:#DBF5F2;color:#0F8179">Diário enviado</span><span class="bdg" style="background:#FEF2DB;color:#85561B">Em andamento</span><span class="bdg" style="background:#F1E6F0;color:#6F0A68">Recado novo</span><div class="spec2" style="margin-top:8px">tones from the MVP: neutral · success · warning · info<br>radius pill · 12/700</div></div>
+  <div class="card c4"><h4>Child list item</h4><div class="kid"><div class="av"></div><div><b>André da Silva</b><small>Maternal II · Novalgina</small></div><span class="ch"></span></div><div class="kid t"><div class="av"></div><div><b>Fernanda Pessoa</b><small>Maternal II</small></div><span class="ch"></span></div><div class="kid p"><div class="av"></div><div><b>Diego Dias</b><small>Maternal I</small></div><span class="ch"></span></div></div>
+  <div class="card c4"><h4>Message card</h4><div class="msg"><div class="av"></div>Bom dia, professora. O André apresentou febre durante a noite. Fica de olho nele, por favor?<div class="dt">04/05/2018<i></i></div><div class="bar"></div></div></div>
+  <div class="card c4"><h4>Date picker</h4><div class="cal"><div class="h"><i>‹</i>SET 2018<i>›</i></div><div class="g"><b>D</b><b>S</b><b>T</b><b>Q</b><b>Q</b><b>S</b><b>S</b><span class="o">26</span><span class="o">27</span><span class="o">28</span><span class="o">29</span><span class="o">30</span><span class="o">31</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span class="sel">13</span><span>14</span></div><div class="lg"><span><i style="background:#F7A201"></i>Feriado</span><span><i style="background:#00BAA2"></i>Prazo</span><span><i style="background:#6F0A68"></i>Evento</span></div></div></div>
+  <div class="card c12" style="grid-column:span 12;padding:12px 20px 0;display:grid;grid-template-columns:1fr 2fr;gap:24px;align-items:end"><div style="padding-bottom:16px"><h4>Child switcher (MVP)</h4><div class="spec2">bottom sheet · header shows avatar + active child · one tap to switch, same module (UX blueprint)</div></div><div class="sheet" style="margin-bottom:-4px"><div class="gr"></div><div class="r"><div class="av"></div><b style="font-weight:500">André da Silva</b><span class="bdg" style="margin:0 0 0 auto;background:#DBF5F2;color:#0F8179">Diário enviado</span></div><div class="r"><div class="av"></div><b style="font-weight:500">Fernanda Pessoa</b><span class="bdg" style="margin:0 0 0 auto;background:#F1E6F0;color:#6F0A68">Recado novo</span></div></div></div>
+ </div>
+</div></section>
+
+<section class="s-ctx" id="papeis"><div class="wrap">
+ <div class="kick">05 / Product</div>
+ <h2 class="t">Three roles, <b>one system.</b></h2>
+ <div class="cx">
+  <div>
+   <div class="roles" style="margin-top:6px">
+    <div class="role"><h5>Teacher</h5><p>“Update the diary for several students in a few minutes without losing focus.”</p><div class="tabs"><span>Turmas</span><span>Diário</span><span>Recados</span><span>Perfil</span></div></div>
+    <div class="role"><h5>Guardian</h5><p>“Understand in seconds how each child's day went.”</p><div class="tabs"><span>Início</span><span>Recados</span><span>Perfil</span></div></div>
+    <div class="role"><h5>Manager</h5><p>“Make sure the team is on board and see the quality of communication.”</p><div class="tabs"><span>Painel</span><span>Turmas</span><span>Recados</span><span>Perfil</span></div></div>
+   </div>
+   <div class="pillars"><div><b>Simplicity</b>Fewer free-text fields, more one-tap actions.</div><div><b>Trust</b>Clear history, timestamps and authorship.</div><div><b>Empathy</b>Human, not bureaucratic, language.</div><div><b>Continuity</b>Full support for families with more than one child.</div></div>
+  </div>
+  <div class="phones" style="padding-top:0;gap:22px">
+   <div class="dv" style="width:236px;height:504px"><img src="assets/s-select.jpg" alt=""><span class="pin" style="left:5%;top:49%;background:#FED952">1</span><span class="pin" style="left:17%;top:48.5%;background:#FED952">2</span></div>
+   <div class="dv" style="width:236px;height:504px"><img src="assets/s-messages.jpg" alt=""><span class="pin" style="left:50%;top:27%;background:#FED952">3</span><span class="pin" style="left:78%;top:45%;background:#FED952">4</span></div>
+  </div>
+ </div>
+ <div style="display:flex;gap:26px;margin-top:6px;font-size:13px;color:#5d4f62"><span><b style="color:#2B1B30">1</b> Child list item · coloured class bar</span><span><b style="color:#2B1B30">2</b> Child avatar</span><span><b style="color:#2B1B30">3</b> Message card · avatar overlap</span><span><b style="color:#2B1B30">4</b> Sun message bar with tail</span></div>
+</div></section>
+
+<section class="s-tok" id="tokens"><div class="wrap">
+ <div class="kick">06 / Tokens &amp; accessibility</div>
+ <h2 class="t">Re-skinning the MVP <b>with the brand.</b></h2>
+ <div class="tk">
+  <div><pre>:root {
+  <span class="c">/* colour · brand */</span>
+  --dp-purple-600: <span class="v">#6F0A68</span>;  --dp-plum-800: <span class="v">#4D0154</span>;   --dp-plum-700: <span class="v">#601167</span>;
+  --dp-teal-500: <span class="v">#00BAA2</span>;    --dp-teal-700: <span class="v">#0F8179</span>;
+  --dp-sun-500: <span class="v">#FED952</span>;      --dp-book-500: <span class="v">#F7A201</span>;
+  --dp-ink-900: <span class="v">#2B1B30</span>;      --dp-paper-100: <span class="v">#EFEFEF</span>;
+
+  <span class="c">/* type · from the MVP theme (px) */</span>
+  --dp-font: &quot;Roboto&quot;, system-ui, sans-serif;
+  --dp-title-xl: 28px; --dp-title-lg: 22px; --dp-title-md: 18px;
+  --dp-title-sm: 16px; --dp-body-md: 15px;  --dp-body-sm: 13px; --dp-caption: 12px;
+
+  <span class="c">/* shape · from the MVP components */</span>
+  --dp-radius-button: 10px; --dp-radius-card: 14px; --dp-radius-pill: 999px;
+  --dp-pad-card: 14px;      --dp-pad-button-y: 12px;
+}</pre></div>
+  <div>
+   <h4>MVP token → brand token (proposed)</h4>
+   <div class="mrow"><code>primary</code><span class="msw" style="background:#1F6FEB"></span><code class="mh">#1F6FEB</code><i>→</i><span class="msw" style="background:#6F0A68"></span><code class="mh">#6F0A68</code></div><div class="mrow"><code>primarySoft</code><span class="msw" style="background:#E9F0FF"></span><code class="mh">#E9F0FF</code><i>→</i><span class="msw" style="background:#EEE2ED"></span><code class="mh">#EEE2ED</code></div><div class="mrow"><code>background</code><span class="msw" style="background:#F5F7FA"></span><code class="mh">#F5F7FA</code><i>→</i><span class="msw" style="background:#EFEFEF"></span><code class="mh">#EFEFEF</code></div><div class="mrow"><code>surface</code><span class="msw" style="background:#FFFFFF"></span><code class="mh">#FFFFFF</code><i>→</i><span class="msw" style="background:#FFFFFF"></span><code class="mh">#FFFFFF</code></div><div class="mrow"><code>text</code><span class="msw" style="background:#0B1220"></span><code class="mh">#0B1220</code><i>→</i><span class="msw" style="background:#2B1B30"></span><code class="mh">#2B1B30</code></div><div class="mrow"><code>muted</code><span class="msw" style="background:#5D6B82"></span><code class="mh">#5D6B82</code><i>→</i><span class="msw" style="background:#6B5E70"></span><code class="mh">#6B5E70</code></div><div class="mrow"><code>border</code><span class="msw" style="background:#D6DEEA"></span><code class="mh">#D6DEEA</code><i>→</i><span class="msw" style="background:#E4DCE6"></span><code class="mh">#E4DCE6</code></div><div class="mrow"><code>success</code><span class="msw" style="background:#11845B"></span><code class="mh">#11845B</code><i>→</i><span class="msw" style="background:#0F8179"></span><code class="mh">#0F8179</code></div><div class="mrow"><code>warning</code><span class="msw" style="background:#B06900"></span><code class="mh">#B06900</code><i>→</i><span class="msw" style="background:#85561B"></span><code class="mh">#85561B</code></div>
+   <h4 style="margin-top:20px">Contrast audit · WCAG 2.1</h4>
+   <div class="crow"><span class="csw" style="background:#6F0A68;color:#FFFFFF">Aa</span><div class="ctx"><b>White on Purple</b><small>Primary button, app bar</small></div><span class="cr">10.9:1</span><span class="chip chip--ok">AAA</span></div><div class="crow"><span class="csw" style="background:#00BAA2;color:#2B1B30">Aa</span><div class="ctx"><b>Ink on Teal</b><small>Login button label</small></div><span class="cr">6.6:1</span><span class="chip chip--ok">AA</span></div><div class="crow"><span class="csw" style="background:#00BAA2;color:#FFFFFF">Aa</span><div class="ctx"><b>White on Teal</b><small>Avoid for text</small></div><span class="cr">2.5:1</span><span class="chip chip--bad">Fail</span></div><div class="crow"><span class="csw" style="background:#FED952;color:#2B1B30">Aa</span><div class="ctx"><b>Ink on Sun</b><small>Highlights, warning chips</small></div><span class="cr">11.7:1</span><span class="chip chip--ok">AAA</span></div><div class="crow"><span class="csw" style="background:#EFEFEF;color:#6F0A68">Aa</span><div class="ctx"><b>Purple on Paper</b><small>Field labels, links</small></div><span class="cr">9.5:1</span><span class="chip chip--ok">AAA</span></div><div class="crow"><span class="csw" style="background:#FFFFFF;color:#0F8179">Aa</span><div class="ctx"><b>Teal 700 on White</b><small>Teal text / icons on light</small></div><span class="cr">4.7:1</span><span class="chip chip--ok">AA</span></div>
+  </div>
+ </div>
+</div></section>
+</body></html>
